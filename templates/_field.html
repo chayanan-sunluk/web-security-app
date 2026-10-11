@@ -1,0 +1,2 @@
+{% macro field(f) %}<label for="{{ f.id }}">{{ f.label.text }}</label>{{ f() }}
+{% for e in f.errors %}<div class="errors">{{ e }}</div>{% endfor %}{% endmacro %}

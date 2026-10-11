@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% from "_field.html" import field %}{% block content %}
+<div class="card"><h2>{{ post.title }}</h2>
+<div class="meta">โดย {{ post.owner.username }} · {{ post.created_at.strftime('%d/%m/%Y %H:%M') }}</div>
+<div class="body">{{ post.content }}</div></div>
+<h3>ความคิดเห็น ({{ post.comments|length }})</h3>
+{% for c in post.comments %}<div class="card"><div class="meta">{{ c.author.username }} · {{ c.created_at.strftime('%d/%m/%Y %H:%M') }}</div>
+<div class="body">{{ c.body }}</div>
+{% if current_user.is_authenticated and (current_user.id == c.author_id or current_user.is_admin) %}
+<form class="inline" method="post" action="{{ url_for('comment_delete', cid=c.id) }}">{{ delete_form.hidden_tag() }}<button class="btn red">ลบ</button></form>{% endif %}</div>{% endfor %}
+{% if current_user.is_authenticated %}<div class="card"><form method="post">{{ form.hidden_tag() }}{{ field(form.body) }}<p><button class="btn">ส่งความคิดเห็น</button></p></form></div>
+{% else %}<p>กรุณา <a href="{{ url_for('login') }}">เข้าสู่ระบบ</a> เพื่อแสดงความคิดเห็น</p>{% endif %}{% endblock %}

@@ -1,0 +1,12 @@
+*{box-sizing:border-box}body{font-family:system-ui,"Noto Sans Thai",sans-serif;margin:0;background:#f4f5f7;color:#222}
+nav{background:#1f2937;color:#fff;padding:12px 20px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+nav a,nav button{color:#fff;text-decoration:none;background:none;border:0;font:inherit;cursor:pointer}
+nav .sp{flex:1}main{max-width:820px;margin:24px auto;padding:0 16px}
+.card{background:#fff;border-radius:10px;padding:16px 18px;margin-bottom:14px;box-shadow:0 1px 3px #0001}
+.card h2,.card h3{margin:0 0 6px}.meta{color:#666;font-size:.85rem}.body{white-space:pre-wrap;margin:10px 0}
+label{display:block;margin:10px 0 4px;font-weight:600}input,textarea{width:100%;padding:9px;border:1px solid #ccc;border-radius:6px;font:inherit}
+textarea{min-height:140px}.btn{display:inline-block;background:#2563eb;color:#fff;border:0;padding:8px 14px;border-radius:6px;cursor:pointer;text-decoration:none;font:inherit}
+.btn.red{background:#dc2626}.btn.gray{background:#6b7280}form.inline{display:inline}
+.flash{padding:10px 14px;border-radius:6px;margin-bottom:12px}.ok{background:#dcfce7}.err{background:#fee2e2}
+.errors{color:#b91c1c;font-size:.85rem}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:8px;border-bottom:1px solid #eee}
+.badge{background:#e0e7ff;border-radius:99px;padding:2px 9px;font-size:.78rem}.badge.admin{background:#fde68a}

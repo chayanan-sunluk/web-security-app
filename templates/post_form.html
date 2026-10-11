@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% from "_field.html" import field %}{% block content %}
+<div class="card"><h2>{{ heading }}</h2><form method="post">{{ form.hidden_tag() }}
+{{ field(form.title) }}{{ field(form.content) }}
+<p><button class="btn">บันทึก</button> <a class="btn gray" href="{{ url_for('index') }}">ยกเลิก</a></p></form></div>{% endblock %}

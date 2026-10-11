@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block content %}
+{% for p in posts %}<div class="card">
+<h3><a href="{{ url_for('post_detail', post_id=p.id) }}">{{ p.title }}</a></h3>
+<div class="meta">โดย {{ p.owner.username }} · {{ p.created_at.strftime('%d/%m/%Y %H:%M') }} · {{ p.comments|length }} ความคิดเห็น</div>
+{% if current_user.is_authenticated and (current_user.id == p.owner_id or current_user.is_admin) %}<p>
+{% if current_user.id == p.owner_id %}<a class="btn gray" href="{{ url_for('post_edit', post_id=p.id) }}">แก้ไข</a>{% endif %}
+<form class="inline" method="post" action="{{ url_for('post_delete', post_id=p.id) }}">{{ delete_form.hidden_tag() }}<button class="btn red">ลบ</button></form></p>{% endif %}
+</div>{% else %}<div class="card">ยังไม่มีโพสต์</div>{% endfor %}{% endblock %}

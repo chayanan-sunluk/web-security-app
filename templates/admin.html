@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block content %}
+<div class="card"><h2>แผงผู้ดูแลระบบ</h2><p class="meta">ผู้ใช้ {{ users|length }} · โพสต์ {{ n_posts }} · ความคิดเห็น {{ n_comments }}</p>
+<table><tr><th>ID</th><th>ชื่อผู้ใช้</th><th>บทบาท</th><th>โพสต์</th><th>จัดการ</th></tr>
+{% for u in users %}<tr><td>{{ u.id }}</td><td>{{ u.username }}</td><td><span class="badge {{ u.role }}">{{ u.role }}</span></td><td>{{ u.posts|length }}</td><td>
+{% if u.id != current_user.id %}
+<form class="inline" method="post" action="{{ url_for('admin_role', uid=u.id) }}">{{ form.hidden_tag() }}<button class="btn gray">สลับ user/admin</button></form>
+<form class="inline" method="post" action="{{ url_for('admin_delete_user', uid=u.id) }}">{{ form.hidden_tag() }}<button class="btn red">ลบผู้ใช้</button></form>
+{% else %}(คุณ){% endif %}</td></tr>{% endfor %}</table></div>{% endblock %}

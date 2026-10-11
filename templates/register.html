@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% from "_field.html" import field %}{% block content %}
+<div class="card"><h2>สมัครสมาชิก</h2><form method="post">{{ form.hidden_tag() }}
+{{ field(form.username) }}{{ field(form.password) }}{{ field(form.confirm) }}
+<p><button class="btn">สมัคร</button></p></form></div>{% endblock %}
